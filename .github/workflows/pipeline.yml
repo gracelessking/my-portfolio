@@ -1,0 +1,19 @@
+name: Build Portfolio Container
+
+# When should this robot wake up?
+on:
+  push:
+    branches:
+      - main
+
+# What should the robot do?
+jobs:
+  build:
+    runs-on: ubuntu-latest # GitHub gives us a free Ubuntu server to use
+
+    steps:
+      - name: 1. Download the code from my repository
+        uses: actions/checkout@v4
+
+      - name: 2. Try to build the Docker container
+        run: docker build -t my-portfolio .
